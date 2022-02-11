@@ -24,7 +24,7 @@ function App() {
 const appStyle = {
   flex: 1,
   minWidth: 400,
-  width: "60%",
+  width: "50%",
   marginTop: 20,
   margin: 10,
 };

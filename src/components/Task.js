@@ -10,18 +10,22 @@ const Task = ({ task }) => {
     <Box sx={taskStyle}>
       <p style={task.completed ? lineThrough : null}>{task.title}</p>
       <Box>
-        <Button
-          sx={{ border: "1px solid green", mx: 2 }}
-          onClick={() => switchToActiveHandler(task.id, "complete")}
-        >
-          {<CheckIcon sx={{ color: "green" }} />}
-        </Button>
-        <Button
-          sx={{ border: "1px solid red" }}
-          onClick={() => switchToActiveHandler(task.id, "incomplete")}
-        >
-          {<ClearIcon sx={{ color: "red" }} />}
-        </Button>
+        {!task.completed && (
+          <Button
+            sx={{ border: "1px solid green" }}
+            onClick={() => switchToActiveHandler(task.id, "complete")}
+          >
+            {<CheckIcon sx={{ color: "green" }} />}
+          </Button>
+        )}
+        {task.completed && (
+          <Button
+            sx={{ border: "1px solid red" }}
+            onClick={() => switchToActiveHandler(task.id, "incomplete")}
+          >
+            {<ClearIcon sx={{ color: "red" }} />}
+          </Button>
+        )}
       </Box>
     </Box>
   );
