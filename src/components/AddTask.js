@@ -4,7 +4,9 @@ import { todosContext } from "../context/todos-context";
 import { useForm } from "react-hook-form";
 
 const AddTask = () => {
-  const { addTaskHandler } = useContext(todosContext);
+  const { addTaskHandler, clearCompletedTaskHandler } =
+    useContext(todosContext);
+
   const {
     handleSubmit,
     register,
@@ -42,9 +44,18 @@ const AddTask = () => {
         {...register("task", validationSet)}
       />
       {errors.task && <p>{errors.task.message}</p>}
-      <Button type="submit" variant="contained" sx={{ height: 50, my: 2 }}>
-        SUBMIT
-      </Button>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Button type="submit" variant="contained" sx={{ height: 50, my: 2 }}>
+          SUBMIT
+        </Button>
+        <Button
+          onClick={clearCompletedTaskHandler}
+          variant="contained"
+          sx={{ height: 50, my: 2 }}
+        >
+          CLEAR COMPLETED TASKS
+        </Button>
+      </Box>
     </Box>
   );
 };

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 export const useTodos = () => {
   const tasks = [
@@ -43,6 +42,16 @@ export const useTodos = () => {
     setTodos([...todos, newTodo]);
   };
 
+  const clearCompletedTaskHandler = () => {
+    const filteredTask = todos.filter((task) => task.completed === false);
+    setTodos(filteredTask);
+  };
+
   //return references
-  return { todos, switchToActiveHandler, addTaskHandler };
+  return {
+    todos,
+    switchToActiveHandler,
+    addTaskHandler,
+    clearCompletedTaskHandler,
+  };
 };

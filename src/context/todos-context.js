@@ -6,6 +6,7 @@ export const todosContext = createContext({
   todos: [],
   switchToActiveHandler: () => {},
   addTaskHandler: () => {},
+  clearCompletedTaskHandler: () => {},
 });
 
 export const TodosContextProvider = ({ children }) => {
